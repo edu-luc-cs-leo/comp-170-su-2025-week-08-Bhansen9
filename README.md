@@ -21,7 +21,7 @@ Write a method in class `Person` with header
 ```python
 def say_birthday(self):
 ```
-that returns a conversational string with someone's birthday. For example, if the birthday is on 6/29, the method should return the string "29th of June". Or, if someone's birthday is on 1/1, the conversational string should be "1st of January", etc.
+that returns a conversational string with someone's birthday. For example, if the birthday is on 6/29, the method should return the string "29th of June". Or, if someone's birthday is on 1/1, the conversational string should be "1st of January", e
 
 
 ### Redefine the `<` operator for two `Person` objects

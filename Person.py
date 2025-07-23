@@ -39,3 +39,29 @@ class Person:
     def __str__(self):
         """String representation for the object"""
         return f"[ {self.first_name} {self.last_name}]"
+    
+    def say_birthday(self):
+        month_values = ["January", "Febuary", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"]
+
+        day = self._birthday.get_day()
+        month = self._birthday.get_month()
+
+        if 10 <= day % 100 <= 20:
+            day_suffix = "th"
+        elif day % 10 == 1:
+            day_suffix = "st"
+        elif day % 10 == 2:
+            day_suffix = "nd"
+        elif day % 10 == 3:
+            day_suffix = "rd"
+        else:
+            day_suffix = "th" 
+        return f"{day}{day_suffix} of {month_values[month - 1]}"
+
+    def __lt__(self,other):
+        return self.first_name < other.first_name
+    
+
+T = Person("Ben", "Hansen")
+T.set_birthday(6, 23)
+print(T.say_birthday())

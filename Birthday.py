@@ -32,6 +32,12 @@ class Birthday:
             self.__day = day
     # end set_day
 
+
+    def set_month(self, month):
+        #make sure the the month is set to a correct month
+        if month > 0 and month <= 12:
+            self.__month = month
+
     # Accessor for __month
     def get_month(self):
         return self.__month
@@ -40,13 +46,9 @@ class Birthday:
     def get_day(self):
         return self.__day
 
-    # Compute days to birthday
-    def days_until(self):
-        # obtain today's date
-        # extract month and day
-        # subtract from birthday
-        # return # of days
-        today = datetime.today()
+
+
+
         # COMPLETE THIS FOR YOUR ASSIGNMENT
         
     def day_in_year(self, month, day):
@@ -61,8 +63,33 @@ class Birthday:
         """String representation for the object"""
         return f"[ {self.get_month()}/{self.get_day()} ]"
     
+     # Compute days to birthday
+    def days_until(self):
+        # obtain today's date
+        # extract month and day
+        # subtract from birthday
+        # return # of days
 
-demo = Birthday(6,29)
+        #collect todays data
+        today = datetime.today()
+        #find the days count for the data just collected
+        count_Today = 0
+        for i in range(today.month-1):
+            count_Today += Birthday.days_in_month[i]
+        count_Today += today.day
+# find the days count for the birthday in question
+        count_Target = 0
+        for i in range(self.__month-1):
+            count_Target += Birthday.days_in_month[i]
+        count_Target += self.__day
+#return the right count and how many days are remaining
+        return count_Target - count_Today if count_Target >= count_Today else 365 + (count_Target - count_Today)
 
-print(demo.day_in_year(6,29)) # d_b
-print(demo.day_in_year(4,29)) # d_t
+    
+demo = Birthday(7, 22)
+
+print(demo.days_until())
+
+# print(demo.days_until())
+# print(demo.day_in_year(6,29)) # d_b
+# print(demo.day_in_year(4,29)) # d_t
